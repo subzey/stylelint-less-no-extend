@@ -1,12 +1,13 @@
 {
   "name": "stylelint-less-no-extend",
   "version": "1.0.0-rc.1",
-  "description": "Disallow :extend pseudo",
+  "description": "Stylelint plugin to disallow :extend pseudos in LESS files",
   "main": "stylelint-less-no-extend",
   "author": "Anton Khlynovskiy <subzey@gmail.com>",
   "license": "WTFPL",
   "dependencies": {
     "postcss-selector-parser": "^5.0.0",
     "stylelint": ">=7.6.0"
-  }
+  },
+  "tags": ["stylelint", "less", "extend"]
 }
