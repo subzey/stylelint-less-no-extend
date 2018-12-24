@@ -26,11 +26,18 @@ const rule = stylelint.createPlugin(ruleName, options => {
 			return;
 		}
 		root.walkRules((rule) => {
+			// Quick and dirty check
+			if (!rule.selector.includes(':extend')) {
+				return;
+			}
+
 			// Hack for LESS double slash comments
 			const selector = rule.selector.replace(
 				/\/\/[^\r\n]*/,
 				(s) => '\u0020'.repeat(s.length)
 			);
+
+			// Check using selector parser to prevent false positives
 			postcssSelectorParser(selectors => {
 				selectors.walkPseudos(pseudo => {
 					if (pseudo.value === ':extend') {
