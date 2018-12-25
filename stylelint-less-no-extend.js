@@ -15,6 +15,9 @@ const messages = ruleMessages(ruleName, {
 
 const rule = stylelint.createPlugin(ruleName, options => {
 	return (root, result) => {
+		if (root.source.lang !== 'less') {
+			return;
+		}
 		const validOptions = validateOptions(result, ruleName, {
 			possible: [true, false],
 			actual: options
